@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.zIndex
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -19,6 +20,7 @@ import uk.gov.android.ui.patterns.camera.R
 import uk.gov.android.ui.patterns.camera.qr.ModifierExtensions.CANVAS_WIDTH_MULTIPLIER
 import uk.gov.android.ui.theme.m3.GdsLocalColorScheme
 import uk.gov.android.ui.theme.m3.QrScannerOverlayDefaults
+import uk.gov.android.ui.theme.m3.Text
 import uk.gov.android.ui.theme.m3.toMappedColors
 
 @Composable
@@ -28,6 +30,8 @@ fun QrScannerViewModelScreen(
     colors: QrScannerOverlayDefaults = GdsLocalColorScheme.current.qrScannerOverlay,
     coroutineScope: CoroutineScope = rememberCoroutineScope(),
     scanningWidthMultiplier: Float = CANVAS_WIDTH_MULTIPLIER,
+    textColor: Color =Text.qrScanner.toMappedColors(),
+    backgroundTextColor: Color = colors.background.toMappedColors(),
     instructionContent: @Composable () -> Unit = {
         QrOverlayText(
             instructionText = stringResource(R.string.qr_scan_screen_title),
@@ -36,6 +40,7 @@ fun QrScannerViewModelScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .zIndex(2f),
+            textBackground = backgroundTextColor,
         )
     },
 ) {
@@ -56,16 +61,16 @@ fun QrScannerViewModelScreen(
             lifecycleOwner = lifecycleOwner,
         )
 
+
+
+
     QrScannerScreen(
+        modifier = Modifier,
         surfaceRequest = surfaceRequest,
         previewUseCase = previewUseCase,
         analysisUseCase = analysisUseCase,
         imageCaptureUseCase = imageCaptureUseCase,
-        scanningWidthMultiplier = scanningWidthMultiplier,
         coroutineScope = coroutineScope,
         onUpdateViewModelCamera = viewModel::update,
-        modifier = modifier,
-        colors = colors,
-        instructionContent = instructionContent,
     )
 }
