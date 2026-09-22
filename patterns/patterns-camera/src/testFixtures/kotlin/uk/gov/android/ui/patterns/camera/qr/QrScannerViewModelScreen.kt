@@ -39,9 +39,9 @@ fun QrScannerViewModelScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .zIndex(2f),
-            textBackground = backgroundTextColor
+            textBackground = backgroundTextColor,
         )
-    }
+    },
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
 
@@ -71,6 +71,6 @@ fun QrScannerViewModelScreen(
         backgroundTint = backgroundTint,
         borderColor = borderColor,
         backgroundTextColor = backgroundTextColor,
-        instructionContent = instructionContent
+        instructionContent = instructionContent,
     )
 }

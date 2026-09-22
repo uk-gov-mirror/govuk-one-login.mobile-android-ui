@@ -37,7 +37,6 @@ import uk.gov.android.ui.theme.m3.toMappedColors
 import uk.gov.android.ui.theme.mediumPadding
 import uk.gov.android.ui.theme.smallPadding
 
-
 /**
  * UI for capturing a QR code from the User's camera.
  *
