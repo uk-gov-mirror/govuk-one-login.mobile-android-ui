@@ -120,31 +120,6 @@ fun QrOverlayText(
     instructionText: String,
     instructionTextContentDesc: String,
     textColor: Color,
-    modifier: Modifier = Modifier,
-) {
-    Box(
-        modifier = modifier,
-        contentAlignment = Alignment.TopCenter,
-    ) {
-        Text(
-            text = instructionText,
-            style = MaterialTheme.typography.headlineMedium,
-            color = textColor,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(all = smallPadding)
-                .semantics {
-                    this.contentDescription = instructionTextContentDesc
-                },
-        )
-    }
-}
-
-@Composable
-fun QrOverlayText(
-    instructionText: String,
-    instructionTextContentDesc: String,
-    textColor: Color,
     textBackground: Color,
     modifier: Modifier = Modifier,
 ) {
